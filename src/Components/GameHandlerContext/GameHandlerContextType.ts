@@ -1,11 +1,11 @@
 type GameHandlerContextType = {
-    playerPos: PlayerPosType,
+    playerPos: PositionType,
     mapData: MapDataType,
     changePlayerPos: (x: number, y: number) => void,
     setMap: (mapData: MapDataType) => void
 };
 
-export type PlayerPosType = {
+export type PositionType = {
     x: number,
     y: number
 }

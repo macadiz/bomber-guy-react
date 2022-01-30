@@ -1,7 +1,7 @@
 import { createContext, FC, useState } from "react";
 import GameHandlerContextType, {
   MapDataType,
-  PlayerPosType,
+  PositionType,
 } from "./GameHandlerContextType";
 
 const defaultValue = {
@@ -17,7 +17,7 @@ const defaultValue = {
 const GameHandlerContext = createContext<GameHandlerContextType>(defaultValue);
 
 const GameHandlerContextProvider: FC = ({ children }) => {
-  const [playerPos, setPlayerPos] = useState<PlayerPosType>({ x: 0, y: 0 });
+  const [playerPos, setPlayerPos] = useState<PositionType>({ x: 3, y: 0 });
   const [mapData, setMapData] = useState<MapDataType>([]);
 
   const changePlayerPos = (x: number, y: number) => {
