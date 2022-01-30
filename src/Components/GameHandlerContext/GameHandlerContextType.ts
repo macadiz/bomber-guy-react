@@ -1,7 +1,7 @@
 type GameHandlerContextType = {
     playerPos: PositionType,
     mapData: MapDataType,
-    changePlayerPos: (x: number, y: number) => void,
+    changePlayerPos: (position: PositionType) => void,
     setMap: (mapData: MapDataType) => void
 };
 

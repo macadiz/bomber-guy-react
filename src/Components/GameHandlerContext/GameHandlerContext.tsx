@@ -20,8 +20,8 @@ const GameHandlerContextProvider: FC = ({ children }) => {
   const [playerPos, setPlayerPos] = useState<PositionType>({ x: 3, y: 0 });
   const [mapData, setMapData] = useState<MapDataType>([]);
 
-  const changePlayerPos = (x: number, y: number) => {
-    setPlayerPos({ x, y });
+  const changePlayerPos = (position: PositionType) => {
+    setPlayerPos(position);
   };
 
   const setMap = (mapData: MapDataType) => {

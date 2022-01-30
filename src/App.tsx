@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./App.css";
 import useGameHandler from "./Components/GameHandlerContext/Hook/useGameHandler";
 import GameObject from "./Components/GameObject";
+import Player from "./Components/Player";
 
 const defaultMapData = [
   {
@@ -49,7 +50,7 @@ const defaultMapData = [
 ];
 
 function App() {
-  const { setMap, mapData, playerPos } = useGameHandler();
+  const { setMap, mapData } = useGameHandler();
 
   useEffect(() => {
     setMap(defaultMapData);
@@ -71,7 +72,7 @@ function App() {
           </div>
         );
       })}
-      <GameObject position={playerPos} type="player" isSolid={true} />
+      <Player />
     </div>
   );
 }

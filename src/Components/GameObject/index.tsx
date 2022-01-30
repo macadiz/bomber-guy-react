@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, ForwardedRef, forwardRef } from "react";
 import { PositionType } from "../GameHandlerContext/GameHandlerContextType";
 import GameObjectProps from "./GameObjectProps";
 import "./GameObject.css";
@@ -12,16 +12,20 @@ const calculatePosition = (size: number, position: PositionType) => {
   };
 };
 
-const GameObject: FC<GameObjectProps> = ({ type, position, isSolid }) => {
-  const positionInline = calculatePosition(defaultSize, position);
+const GameObject: FC<GameObjectProps> = forwardRef(
+  ({ type, position, isSolid }, ref: ForwardedRef<HTMLDivElement>) => {
+    const positionInline = calculatePosition(defaultSize, position);
 
-  return (
-    <div className="game-object-wrapper" style={{ ...positionInline }}>
+    return (
       <div
-        className={`game-object ${type} ${isSolid ? "solid" : ""}`}
-      />
-    </div>
-  );
-};
+        className="game-object-wrapper"
+        style={{ ...positionInline }}
+        ref={ref}
+      >
+        <div className={`game-object ${type} ${isSolid ? "solid" : ""}`} />
+      </div>
+    );
+  }
+);
 
 export default GameObject;
