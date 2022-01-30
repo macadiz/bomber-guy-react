@@ -1,7 +1,8 @@
 type GameHandlerContextType = {
     playerPos: PlayerPosType,
     mapData: MapDataType,
-    changePlayerPos: (x: number, y: number) => void
+    changePlayerPos: (x: number, y: number) => void,
+    setMap: (mapData: MapDataType) => void
 };
 
 export type PlayerPosType = {
@@ -9,6 +10,16 @@ export type PlayerPosType = {
     y: number
 }
 
-export type MapDataType = Array<Array<number>>;
+export type MapRowType = {
+    id: number,
+    cells: Array<MapCellType>
+}
+
+export type MapCellType = {
+    id: number,
+    value: number
+}
+
+export type MapDataType = Array<MapRowType>;
 
 export default GameHandlerContextType;

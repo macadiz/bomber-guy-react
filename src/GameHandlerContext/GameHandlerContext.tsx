@@ -9,19 +9,24 @@ const defaultValue = {
     x: 0,
     y: 0,
   },
-  mapData: [[]],
+  mapData: [],
   changePlayerPos: () => {},
+  setMap: () => {}
 };
 
 const GameHandlerContext = createContext<GameHandlerContextType>(defaultValue);
 
 const GameHandlerContextProvider: FC = ({ children }) => {
   const [playerPos, setPlayerPos] = useState<PlayerPosType>({ x: 0, y: 0 });
-  const [mapData, setMapData] = useState<MapDataType>([[]]);
+  const [mapData, setMapData] = useState<MapDataType>([]);
 
   const changePlayerPos = (x: number, y: number) => {
     setPlayerPos({ x, y });
   };
+
+  const setMap = (mapData: MapDataType) => {
+    setMapData(mapData);
+  }
 
   return (
     <GameHandlerContext.Provider
@@ -29,6 +34,7 @@ const GameHandlerContextProvider: FC = ({ children }) => {
         playerPos,
         mapData,
         changePlayerPos,
+        setMap
       }}
     >
       {children}
