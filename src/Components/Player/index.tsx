@@ -47,8 +47,6 @@ const Player = () => {
         }
       }
     };
-
-    console.log("?", ref);
     
     document.addEventListener("keydown", keyPress);
 

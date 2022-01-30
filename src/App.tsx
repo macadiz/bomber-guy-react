@@ -45,6 +45,10 @@ const defaultMapData = [
         id: 4,
         value: 100,
       },
+      {
+        id: 5,
+        value: 110,
+      },
     ],
   },
 ];
