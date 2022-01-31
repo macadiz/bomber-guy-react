@@ -13,7 +13,10 @@ const calculatePosition = (size: number, position: PositionType) => {
 };
 
 const GameObject: FC<GameObjectProps> = forwardRef(
-  ({ type, position, isSolid }, ref: ForwardedRef<HTMLDivElement>) => {
+  (
+    { type, position, isSolid, tileValue },
+    ref: ForwardedRef<HTMLDivElement>
+  ) => {
     const positionInline = calculatePosition(defaultSize, position);
 
     return (
@@ -22,7 +25,11 @@ const GameObject: FC<GameObjectProps> = forwardRef(
         style={{ ...positionInline }}
         ref={ref}
       >
-        <div className={`game-object ${type} ${isSolid ? "solid" : ""}`} />
+        <div
+          className={`game-object ${type} ${isSolid ? "solid" : ""} ${
+            tileValue ? `tile-${tileValue}` : ""
+          }`}
+        />
       </div>
     );
   }

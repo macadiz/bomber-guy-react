@@ -17,6 +17,11 @@ export type MapRowType = {
 
 export type MapCellType = {
     id: number,
+    value: number | GameObjectType,
+}
+
+export type GameObjectType = {
+    isSolid: boolean,
     value: number
 }
 
