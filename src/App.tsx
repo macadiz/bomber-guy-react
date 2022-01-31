@@ -79,10 +79,9 @@ function App() {
                 );
               } else {
                 return (
-                  <>
+                  <React.Fragment key={`map-row-${mapRow.id}-cell-${mapCell.id}`}>
                     <div
                       className={`map-cell tile-${mapCell.value.value}`}
-                      key={`map-row-${mapRow.id}-cell-${mapCell.id}`}
                     />
                     <GameObject
                       position={{ x: cellIndex, y: rowIndex }}
@@ -90,7 +89,7 @@ function App() {
                       isSolid={mapCell.value.isSolid}
                       tileValue={mapCell.value.value}
                     />
-                  </>
+                  </React.Fragment>
                 );
               }
             })}

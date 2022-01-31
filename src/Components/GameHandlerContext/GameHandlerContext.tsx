@@ -2,7 +2,6 @@ import { createContext, FC, useState } from "react";
 import GameHandlerContextType, {
   MapDataType,
   PositionType,
-  GameObjectType,
 } from "./GameHandlerContextType";
 
 const defaultValue = {
